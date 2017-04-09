@@ -1,0 +1,40 @@
+{
+  "name": "vue-webpake-helloworld",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "webpack-dev-server --open --inline --hot --config webpack.config.js --port 2333",
+    "build": "cross-env PROD_ENV=1 webpack --progress --hide-modules --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sevenskey/vue-webpake-helloworld.git"
+  },
+  "author": "Sevenskey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sevenskey/vue-webpake-helloworld/issues"
+  },
+  "homepage": "https://github.com/Sevenskey/vue-webpake-helloworld#readme",
+  "dependencies": {
+    "vue": "^2.2.6",
+    "vue-router": "^2.4.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "cross-env": "^4.0.0",
+    "css-loader": "^0.28.0",
+    "file-loader": "^0.11.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.3",
+    "style-loader": "^0.16.1",
+    "uglify-js": "^2.8.22",
+    "uglifyjs-webpack-plugin": "^0.4.1",
+    "vue-loader": "^11.3.4",
+    "vue-template-compiler": "^2.2.6",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
+  }
+}
