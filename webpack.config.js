@@ -7,6 +7,12 @@ const webpack = require('webpack');
 // 获取约定好的node环境变量以根据当前环境（生产或测试）启动不同的编译方式
 const PROD = JSON.parse(process.env.PROD_ENV || 0);
 
+// 获取工作目录绝对路径
+const PATH = process.cwd();
+
+// 获取工作目录名称
+const PROJECTNAME = process.platform.indexOf('win') != -1 ? PATH.split('\\').pop() : PATH.split('/').pop();
+
 module.exports = {
     // 应用编译入口
     entry : './main.js',
@@ -19,7 +25,8 @@ module.exports = {
         filename : 'bundle.js',
 
         // 设置静态资源公共路径
-        publicPath : '/dist/',
+        // 如果打包，则默认将应用根目录设置为当前工作目录名，以适应 GitHub Pages 的部署
+        publicPath : PROD ? '/' + PROJECTNAME + '/dist/' : '/dist/',
     },
 
     // loader设置
@@ -79,10 +86,10 @@ module.exports = {
         }
     },
 
-    //plugins : PROD ? [
+    plugins : PROD ? [
         // 在生产环境中压缩js，不过似乎尚不能用
-        //new webpack.optimize.UglifyJsPlugin({
-            //minimize : true,
-        //}),
-    //] : [],
+        new webpack.optimize.UglifyJsPlugin({
+            minimize : true,
+        }),
+    ] : [],
 }

@@ -13,6 +13,10 @@ body {
 </style>
 
 <script>
+import Hello from '../../libs/hello.js'
+
+const helloTest = new Hello();
+
 export default {
     data () {
         return {
